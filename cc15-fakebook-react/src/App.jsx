@@ -1,8 +1,22 @@
+import { ToastContainer} from 'react-toastify'
+import { useAuth } from "./hooks/use-auth"
+import Route from "./router/route"
+import Loading from "./components/Loading";
+
 
 function App() {
-  return <div className="text-orange-500 text-5xl"> 
-  App component
-  </div>
+  const {initialLoading} = useAuth();
+  if(initialLoading){
+    return <Loading/>
+  }
+  return (
+    <>
+    
+    < Route />
+    <ToastContainer/>
+    </>
+  
+  )
 }
 
-export default App
+export default App;
